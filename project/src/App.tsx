@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import LoadingScreen from './components/LoadingScreen';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -11,6 +12,14 @@ type Page = 'home' | 'about' | 'services' | 'contact';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const navigate = (page: string) => {
     setCurrentPage(page as Page);
@@ -28,6 +37,10 @@ export default function App() {
         return <Home onNavigate={navigate} />;
     }
   };
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col">

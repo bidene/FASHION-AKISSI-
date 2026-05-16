@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { Phone, MessageCircle, MapPin, Clock, Send, CheckCircle, Instagram, Facebook } from 'lucide-react';
 
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
+  </svg>
+);
+
 const faqs = [
   {
     q: 'Livrez-vous partout au Bénin ?',
@@ -40,12 +46,16 @@ ${form.message || '[votre message]'}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Ouvrir WhatsApp directement pour éviter le blocage des popups par le navigateur
+    window.open(`https://wa.me/2290190685918?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+
+    // Mettre à jour l'interface pour montrer que c'est envoyé
     setSending(true);
     setTimeout(() => {
       setSending(false);
       setSubmitted(true);
-      window.open(`https://wa.me/2290190685918?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-    }, 1000);
+    }, 800);
   };
 
   return (
@@ -258,7 +268,16 @@ ${form.message || '[votre message]'}`;
               {/* Social */}
               <div className="bg-gray-50 rounded-3xl p-6">
                 <h3 className="font-bold text-gray-900 mb-4">Suivez-nous</h3>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://tiktok.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 rounded-2xl text-sm font-semibold hover:bg-gray-800 transition-colors"
+                  >
+                    <TikTokIcon className="w-4 h-4" />
+                    TikTok
+                  </a>
                   <a
                     href="https://instagram.com"
                     target="_blank"

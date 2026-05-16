@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
 
   const sendMessage = () => {
     const text = msg.trim() || defaultMsg;
-    window.open(`https://wa.me/22901906859 18?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/2290190685918?text=${encodeURIComponent(text)}`, '_blank');
     setOpen(false);
     setMsg('');
   };
@@ -55,8 +55,8 @@ export default function WhatsAppButton() {
                   key={suggestion}
                   onClick={() => setMsg(suggestion)}
                   className={`w-full text-left text-xs px-3 py-2 rounded-full border transition-all ${msg === suggestion
-                      ? 'bg-green-500 text-white border-green-500'
-                      : 'border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-600'
+                    ? 'bg-green-500 text-white border-green-500'
+                    : 'border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-600'
                     }`}
                 >
                   {suggestion}

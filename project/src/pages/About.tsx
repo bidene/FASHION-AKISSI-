@@ -28,11 +28,17 @@ const values = [
 ];
 
 const milestones = [
-  { year: '2018', title: "Fondation d'AKISSI FASHION", desc: "Ouverture de la première boutique à Cotonou avec une vision claire : rendre la mode africaine accessible et premium." },
-  { year: '2019', title: 'Première Collection Wax', desc: "Lancement de notre ligne signature utilisant des tissus wax authentiques en collaboration avec des tisseurs locaux." },
-  { year: '2021', title: 'Expansion Online', desc: "Lancement de notre présence digitale pour toucher les clients à travers tout le Bénin et au-delà." },
-  { year: '2023', title: '+500 Clientes Fidèles', desc: "Franchise d'une communauté solide de femmes qui font confiance à AKISSI FASHION pour leurs occasions spéciales." },
-  { year: '2025', title: 'Nouvelle Collection Premium', desc: "Introduction d'une gamme haut de gamme fusionnant élégance africaine et codes de la haute couture internationale." },
+  { year: '2015', title: "Fondation d'AKISSI FASHION", desc: "Ouverture de la première boutique à Cotonou avec une vision claire : rendre la mode africaine accessible et premium." },
+  { year: '2016', title: 'Première Collection', desc: "Lancement de notre ligne signature utilisant des tissus wax authentiques en collaboration avec des tisseurs locaux." },
+  { year: '2017', title: 'Expansion Online', desc: "Lancement de notre présence digitale pour toucher les clients à travers tout le Bénin et au-delà." },
+  { year: '2018', title: '+500 Clientes Fidèles', desc: "Franchise d'une communauté solide de femmes qui font confiance à AKISSI FASHION pour leurs occasions spéciales." },
+  { year: '2019', title: 'Nouvelle Collection Premium', desc: "Introduction d'une gamme haut de gamme fusionnant élégance africaine et codes de la haute couture internationale." },
+  { year: '2020', title: 'Résilience & Innovation', desc: "Adaptation avec succès aux défis mondiaux et lancement d'une ligne de prêt-à-porter confortable et chic." },
+  { year: '2021', title: 'Ouverture Seconde Boutique', desc: "Inauguration d'un nouvel espace de vente moderne, marquant notre expansion physique au Bénin." },
+  { year: '2022', title: 'Défilé International', desc: "Première participation majeure à un événement de mode international, propulsant AKISSI sur la scène régionale." },
+  { year: '2024', title: 'Ligne Accessoires', desc: "Création d'une gamme complète de sacs et bijoux exclusifs faits main pour sublimer nos tenues." },
+  { year: '2025', title: 'Mode Éco-responsable', desc: "Transition vers des matériaux durables et lancement de notre première grande collection upcyclée." },
+  { year: '2026', title: 'Expansion Internationale', desc: "Ouverture de notre premier showroom à l'international pour faire rayonner la mode africaine." },
 ];
 
 const team = [
@@ -43,13 +49,7 @@ const team = [
     image: 'https://images.pexels.com/photos/3671083/pexels-photo-3671083.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   {
-    name: 'Mireille Adjovi',
-    role: 'Styliste & Conseillère Mode',
-    bio: "Formée à Dakar et Abidjan, Mireille apporte son expertise des tendances africaines et internationales à notre équipe.",
-    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400',
-  },
-  {
-    name: 'Serge Houinsou',
+    name: 'Armand A',
     role: 'Responsable Clientèle',
     bio: "Avec son sens du service et son sourire légendaire, Serge s'assure que chaque cliente repart comblée et fidèle à AKISSI FASHION.",
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -88,23 +88,18 @@ export default function About({ onNavigate }: AboutProps) {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-rose-700 text-xs font-bold uppercase tracking-widest">Notre Mission</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-3 mb-6 leading-tight">
-              La Mode Africaine,<br />Réinventée pour Vous
+            <h2 className="text-4xl font-bold mt-3 mb-6 leading-tight">
+              <span className="text-gray-900">Akissi</span> <span className="text-rose-700">Fashion</span>
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              AKISSI FASHION est née d'un rêve simple : rendre la mode africaine accessible, moderne et premium. Fondée à Cotonou au Bénin, notre boutique de prêt-à-porter propose des créations qui mêlent harmonieusement les riches traditions textiles africaines aux tendances contemporaines.
+              Fondée au Bénin, Akissi Fashion est née d'une passion pour le style urbain et le désir de sublimer chaque femme au quotidien.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-5">
+              Nous sélectionnons avec soin des pièces tendance auprès de fournisseurs afin de proposer des vêtements modernes, stylés et accessibles. Chaque article est choisi pour refléter les dernières tendances et répondre aux envies de nos clientes.
             </p>
             <p className="text-gray-600 leading-relaxed mb-8">
-              Chaque pièce de notre collection est soigneusement sélectionnée ou créée pour refléter l'authenticité de notre héritage tout en répondant aux exigences du style moderne. Nous croyons que chaque femme mérite de se sentir magnifique et confiante dans ce qu'elle porte.
+              Des tenues chic aux looks décontractés, notre mission est de rendre le prêt-à-porter féminin simple, accessible et toujours à la mode.
             </p>
-            <ul className="space-y-3 mb-8">
-              {['Tissus wax, bogolan et kente authentiques', 'Coupes adaptées à toutes les morphologies', 'Collections renouvelées chaque saison', 'Prix accessibles sans compromis sur la qualité'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
             <button
               onClick={() => navigate('services')}
               className="bg-rose-700 hover:bg-rose-700 text-white px-7 py-3 rounded-full font-semibold flex items-center gap-2 transition-all hover:shadow-lg hover:shadow-rose-200"
@@ -113,7 +108,7 @@ export default function About({ onNavigate }: AboutProps) {
             </button>
           </div>
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <img
                 src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="Collection"
@@ -133,7 +128,7 @@ export default function About({ onNavigate }: AboutProps) {
               </div>
             </div>
             <div className="absolute -bottom-6 -left-6 bg-rose-700 text-white px-6 py-4 rounded-2xl shadow-xl hidden md:block">
-              <p className="text-3xl font-bold">7+</p>
+              <p className="text-3xl font-bold">10+</p>
               <p className="text-rose-200 text-sm">Années d'expertise</p>
             </div>
           </div>
@@ -212,7 +207,7 @@ export default function About({ onNavigate }: AboutProps) {
             <span className="text-rose-700 text-xs font-bold uppercase tracking-widest">Les Visages</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-2">Notre Équipe</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                 <div className="relative overflow-hidden aspect-[4/3]">
