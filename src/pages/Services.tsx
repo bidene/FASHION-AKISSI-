@@ -238,7 +238,7 @@ export default function Services({ onNavigate }: ServicesProps) {
       </section>
 
       {/* CTA strip */}
-      <section className="py-14 bg-gray-950">
+      <section className="py-14 bg-gray-950 relative z-20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-white text-2xl font-bold">Besoin d'une Tenue Urgente ?</h3>

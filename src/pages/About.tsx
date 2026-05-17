@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowRight, Users, Award, Heart, Scissors } from 'lucide-react';
+import { CheckCircle, ArrowRight, Users, Award, Heart, Scissors, Phone } from 'lucide-react';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
@@ -36,6 +36,7 @@ const milestones = [
   { year: '2020', title: 'Résilience & Innovation', desc: "Adaptation avec succès aux défis mondiaux et lancement d'une ligne de prêt-à-porter confortable et chic." },
   { year: '2021', title: 'Ouverture Seconde Boutique', desc: "Inauguration d'un nouvel espace de vente moderne, marquant notre expansion physique au Bénin." },
   { year: '2022', title: 'Défilé International', desc: "Première participation majeure à un événement de mode international, propulsant AKISSI sur la scène régionale." },
+  { year: '2023', title: 'Nouvelle Mode AKISSI Fashion', desc: "Inauguration de notre grande maison de mode dédiée à la création et à la personnalisation de vêtements sur-mesure, avec un savoir-faire unique et une qualité premium." },
   { year: '2024', title: 'Ligne Accessoires', desc: "Création d'une gamme complète de sacs et bijoux exclusifs faits main pour sublimer nos tenues." },
   { year: '2025', title: 'Mode Éco-responsable', desc: "Transition vers des matériaux durables et lancement de notre première grande collection upcyclée." },
   { year: '2026', title: 'Expansion Internationale', desc: "Ouverture de notre premier showroom à l'international pour faire rayonner la mode africaine." },
@@ -241,15 +242,17 @@ export default function About({ onNavigate }: AboutProps) {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => navigate('contact')}
-              className="bg-white text-rose-700 hover:bg-rose-50 px-8 py-4 rounded-full font-bold transition-colors"
+              className="bg-white text-rose-700 hover:bg-rose-50 px-8 py-4 rounded-full font-bold transition-all hover:shadow-lg hover:shadow-rose-950/20 flex items-center gap-2"
             >
+              <Phone className="w-4 h-4" />
               Nous Contacter
             </button>
             <button
               onClick={() => navigate('services')}
-              className="border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded-full font-bold transition-colors"
+              className="border-2 border-white/50 hover:border-white hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2"
             >
               Voir nos Services
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
