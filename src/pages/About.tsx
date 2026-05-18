@@ -3,7 +3,7 @@ import boutique from '../assets/boutique.jpeg';
 import yellowDress from '../assets/yellow_dress.jpg';
 import whiteDress from '../assets/white_dress.jpg';
 import armand from '../assets/armand.jpg';
-import akissi from '../assets/akissi.jpg';
+import akissi from '../assets/Akissi.jpg';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
