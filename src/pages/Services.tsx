@@ -103,6 +103,15 @@ export default function Services({ onNavigate }: ServicesProps) {
     window.scrollTo(0, 0);
   };
 
+  const handleOrderClick = () => {
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      navigate('contact');
+    } else {
+      navigate('contact');
+    }
+  };
+
   const filtered = activeCategory === 'Tout'
     ? services
     : services.filter((s) => s.category === activeCategory);
@@ -211,7 +220,7 @@ export default function Services({ onNavigate }: ServicesProps) {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 md:py-24 bg-gray-50 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <span className="text-rose-700 text-xs font-bold uppercase tracking-widest">Simple & Rapide</span>
@@ -230,10 +239,11 @@ export default function Services({ onNavigate }: ServicesProps) {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 relative z-[60] pb-8">
             <button
-              onClick={() => navigate('contact')}
-              className="bg-rose-700 hover:bg-rose-750 active:scale-95 text-white px-10 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-150 hover:shadow-lg hover:shadow-rose-200"
+              type="button"
+              onClick={handleOrderClick}
+              className="bg-rose-700 hover:bg-rose-800 active:bg-rose-900 active:scale-95 text-white px-8 md:px-10 py-4 md:py-4 rounded-full font-semibold text-sm md:text-sm uppercase tracking-wider transition-all duration-150 hover:shadow-lg hover:shadow-rose-200 cursor-pointer touch-manipulation min-w-[200px] min-h-[56px] select-none"
             >
               Passer une commande
             </button>

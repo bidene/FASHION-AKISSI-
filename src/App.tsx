@@ -21,6 +21,10 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const navigate = (page: string) => {
     setCurrentPage(page as Page);
   };
