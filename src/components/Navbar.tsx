@@ -26,7 +26,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const navigate = (page: string) => {
     onNavigate(page);
     setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

@@ -13,7 +13,7 @@ interface FooterProps {
 export default function Footer({ onNavigate }: FooterProps) {
   const navigate = (page: string) => {
     onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

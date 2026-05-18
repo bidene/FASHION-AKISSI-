@@ -100,7 +100,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
   const navigate = (page: string) => {
     onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const filtered = activeCategory === 'Tout'
@@ -233,7 +233,7 @@ export default function Services({ onNavigate }: ServicesProps) {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate('contact')}
-              className="bg-rose-700 hover:bg-rose-700 text-white px-10 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-rose-200"
+              className="bg-rose-700 hover:bg-rose-750 active:scale-95 text-white px-10 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-150 hover:shadow-lg hover:shadow-rose-200"
             >
               Passer une commande
             </button>

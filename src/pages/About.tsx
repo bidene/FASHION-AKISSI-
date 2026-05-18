@@ -65,7 +65,7 @@ const team = [
 export default function About({ onNavigate }: AboutProps) {
   const navigate = (page: string) => {
     onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

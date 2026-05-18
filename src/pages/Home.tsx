@@ -134,7 +134,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
   const navigate = (page: string) => {
     onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -296,7 +296,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   </span>
                   <button
                     onClick={() => navigate('contact')}
-                    className="absolute bottom-3 left-3 right-3 bg-rose-700 text-white py-2 rounded-xl text-sm font-semibold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                    className="absolute bottom-3 left-3 right-3 bg-rose-700 hover:bg-rose-800 active:scale-95 text-white py-2 rounded-xl text-sm font-semibold transition-all duration-300 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0"
                   >
                     Commander
                   </button>
