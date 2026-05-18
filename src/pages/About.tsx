@@ -1,4 +1,9 @@
 import { CheckCircle, ArrowRight, Users, Award, Heart, Scissors, Phone } from 'lucide-react';
+import boutique from '../assets/boutique.jpeg';
+import yellowDress from '../assets/yellow_dress.jpg';
+import whiteDress from '../assets/white_dress.jpg';
+import armand from '../assets/armand.jpg';
+import akissi from '../assets/akissi.jpg';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
@@ -44,16 +49,16 @@ const milestones = [
 
 const team = [
   {
-    name: 'Akissi Kouamé',
+    name: 'Akissi K.',
     role: 'Fondatrice & Directrice Créative',
     bio: "Passionnée de mode depuis l'enfance, Akissi a transformé sa vision en une marque reconnue pour son authenticité et son élégance.",
-    image: 'https://images.pexels.com/photos/3671083/pexels-photo-3671083.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: akissi,
   },
   {
     name: 'Armand A',
     role: 'Responsable Clientèle',
-    bio: "Avec son sens du service et son sourire légendaire, Serge s'assure que chaque cliente repart comblée et fidèle à AKISSI FASHION.",
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    bio: "Avec son sens du service et son sourire légendaire, Armand s'assure que chaque cliente repart comblée et fidèle à AKISSI FASHION.",
+    image: armand,
   },
 ];
 
@@ -111,20 +116,20 @@ export default function About({ onNavigate }: AboutProps) {
           <div className="relative">
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <img
-                src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src={yellowDress}
                 alt="Collection"
-                className="rounded-2xl object-cover aspect-[3/4]"
+                className="rounded-2xl object-cover aspect-[2/3] h-[400px] md:h-[485px] mx-auto shadow-md"
               />
               <div className="flex flex-col gap-4 mt-8">
                 <img
-                  src="https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Mode"
-                  className="rounded-2xl object-cover aspect-square"
+                  src={boutique}
+                  alt="Boutique Akissi Fashion"
+                  className="rounded-2xl object-cover aspect-[5/4] shadow-md"
                 />
                 <img
-                  src="https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src={whiteDress}
                   alt="Élégance"
-                  className="rounded-2xl object-cover aspect-square"
+                  className="rounded-2xl object-cover aspect-[3/4] object-[center_15%] shadow-md"
                 />
               </div>
             </div>
@@ -208,14 +213,15 @@ export default function About({ onNavigate }: AboutProps) {
             <span className="text-rose-700 text-xs font-bold uppercase tracking-widest">Les Visages</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-2">Notre Équipe</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {team.map((member) => (
               <div key={member.name} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
-                <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="relative overflow-hidden aspect-square">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${member.name === 'Armand A' ? 'object-top' : ''
+                      }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import { ArrowRight, Filter, Phone, MessageCircle, ChevronRight, Share2 } from 'lucide-react';
+import accessoiresImg from '../assets/accessoires_bijoux.jpg';
+import surMesureImg from '../assets/sur_mesure.jpg';
+import locationImg from '../assets/location_tenues.jpg';
+import soireeMariageImg from '../assets/soiree_mariage.jpg';
+import collectionSacImg from '../assets/collection_sac.jpg';
+import collectionFemmeImg from '../assets/collection_femme.jpg';
 
 interface ServicesProps {
   onNavigate: (page: string) => void;
@@ -13,27 +19,29 @@ const services = [
     category: 'Femme',
     title: 'Prêt-à-Porter Femme',
     desc: "Notre collection femme regroupe des robes, ensembles, blouses et pantalons taillés dans les plus beaux tissus africains et internationaux. Du casual chic au glamour de soirée.",
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: collectionFemmeImg,
     features: ['Robes longues et courtes', 'Ensembles tailleur', 'Tenues de soirée', 'Looks décontractés'],
-    priceFrom: '15 000 FCFA',
   },
   {
-    id: 'wax-bogolan',
-    category: 'Femme',
-    title: 'Collections Wax & Bogolan',
-    desc: "Célébrez votre identité africaine avec nos créations wax, bogolan et kente. Des pièces authentiques qui allient fierté culturelle et modernité stylistique.",
-    image: 'https://images.pexels.com/photos/3622623/pexels-photo-3622623.jpeg?auto=compress&cs=tinysrgb&w=800',
-    features: ['Tissus wax authentiques', 'Bogolan artisanal', 'Kente premium', 'Coupes modernes'],
-    priceFrom: '20 000 FCFA',
+    id: 'Collection-Sac',
+    category: 'Accessoires',
+    title: 'Collection – Sac',
+    desc: "Découvrez notre collection de sacs inspirés de l’élégance africaine. Des créations uniques qui allient tradition, modernité et style raffiné pour sublimer toutes vos tenues.",
+    image: collectionSacImg,
+    features: [
+      'Sacs en wax authentique',
+      'Sacs en bogolan artisanal',
+      'Sacs en kente premium',
+      'Sacs modernes et élégants pour toutes les occasions'
+    ],
   },
   {
     id: 'soiree-mariage',
     category: 'Femme',
     title: 'Tenues de Soirée & Mariages',
     desc: "Pour les grands événements de votre vie, AKISSI FASHION crée des tenues inoubliables. Mariages, baptêmes, anniversaires — chaque occasion mérite une tenue d'exception.",
-    image: 'https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: soireeMariageImg,
     features: ['Robes de mariée', 'Tenues de demoiselles', 'Robes de cocktail', 'Ensembles cérémonie'],
-    priceFrom: '45 000 FCFA',
     badge: 'Populaire',
   },
   {
@@ -41,28 +49,25 @@ const services = [
     category: 'Accessoires',
     title: 'Accessoires & Bijoux',
     desc: "Complétez votre look avec notre sélection d'accessoires mode : sacs, bijoux, foulards, ceintures et chaussures pour sublimer chaque tenue.",
-    image: 'https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: accessoiresImg,
     features: ['Sacs à main', 'Bijoux fantaisie', 'Foulards & voiles', 'Ceintures & chaussures'],
-    priceFrom: '3 000 FCFA',
   },
   {
     id: 'sur-mesure',
     category: 'Sur Mesure',
     title: 'Confection Sur Mesure',
     desc: "Vous avez une vision précise ? Notre équipe de couturières réalise votre tenue sur mesure, selon vos mensurations et vos goûts. Une pièce unique, rien que pour vous.",
-    image: 'https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: surMesureImg,
     features: ['Prise de mesures à domicile', 'Choix des tissus sur catalogue', 'Délai 7-14 jours', 'Retouches incluses'],
-    priceFrom: '25 000 FCFA',
     badge: 'Premium',
   },
   {
     id: 'location',
     category: 'Femme',
-    title: 'Location de Tenues',
+    title: 'Tenues Moderne',
     desc: "Pour une occasion unique sans engagement d'achat, louez une de nos magnifiques tenues de soirée. Service disponible avec essayage et retouches inclus.",
-    image: 'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: locationImg,
     features: ['Tenues de soirée', 'Accessoires inclus', 'Nettoyage compris', 'Réservation à l\'avance'],
-    priceFrom: '10 000 FCFA / jour',
   },
 ];
 
@@ -151,11 +156,14 @@ export default function Services({ onNavigate }: ServicesProps) {
                 className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
                 onClick={() => setSelectedService(service)}
               >
-                <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="relative overflow-hidden aspect-[4/3] bg-white flex items-center justify-center">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${service.id === 'location' || service.id === 'soiree-mariage' || service.id === 'Collection-Sac' || service.id === 'pret-a-porter-femme'
+                      ? 'object-contain'
+                      : 'object-cover'
+                      }`}
                   />
                   {service.badge && (
                     <span className={`absolute top-4 left-4 text-xs font-bold px-3 py-1.5 rounded-full ${service.badge === 'Premium' ? 'bg-amber-500 text-white' : 'bg-rose-700 text-white'
@@ -181,11 +189,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                   <span className="text-xs font-bold text-rose-500 uppercase tracking-wider">{service.category}</span>
                   <h3 className="font-bold text-gray-900 text-xl mt-1 mb-2">{service.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{service.desc}</p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-400">À partir de</p>
-                      <p className="font-bold text-rose-700">{service.priceFrom}</p>
-                    </div>
+                  <div className="flex items-center justify-end">
                     <div className="flex items-center gap-3">
                       <button
                         onClick={(e) => handleShare(e, service)}
@@ -275,11 +279,14 @@ export default function Services({ onNavigate }: ServicesProps) {
             className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-video">
+            <div className="relative aspect-video bg-white flex items-center justify-center">
               <img
                 src={selectedService.image}
                 alt={selectedService.title}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${selectedService.id === 'location' || selectedService.id === 'soiree-mariage' || selectedService.id === 'Collection-Sac' || selectedService.id === 'pret-a-porter-femme'
+                  ? 'object-contain p-1'
+                  : 'object-cover'
+                  }`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <button
@@ -290,7 +297,15 @@ export default function Services({ onNavigate }: ServicesProps) {
               </button>
               <div className="absolute bottom-5 left-6 flex items-end justify-between right-6">
                 <div>
-                  <span className="text-xs font-bold text-rose-300 uppercase tracking-wider">{selectedService.category}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-rose-300 uppercase tracking-wider">{selectedService.category}</span>
+                    {selectedService.badge && (
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${selectedService.badge === 'Premium' ? 'bg-amber-500 text-white' : 'bg-rose-700 text-white'
+                        }`}>
+                        {selectedService.badge}
+                      </span>
+                    )}
+                  </div>
                   <h2 className="text-white text-2xl font-bold mt-1">{selectedService.title}</h2>
                 </div>
                 <button
@@ -311,18 +326,6 @@ export default function Services({ onNavigate }: ServicesProps) {
                     {f}
                   </div>
                 ))}
-              </div>
-              <div className="flex items-center justify-between p-4 bg-rose-50 rounded-2xl mb-6">
-                <div>
-                  <p className="text-xs text-rose-400 uppercase font-bold tracking-wider">Prix à partir de</p>
-                  <p className="text-rose-700 text-2xl font-bold">{selectedService.priceFrom}</p>
-                </div>
-                {selectedService.badge && (
-                  <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${selectedService.badge === 'Premium' ? 'bg-amber-500 text-white' : 'bg-rose-700 text-white'
-                    }`}>
-                    {selectedService.badge}
-                  </span>
-                )}
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a

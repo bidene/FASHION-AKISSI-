@@ -270,7 +270,7 @@ ${form.message || '[votre message]'}`;
                 <h3 className="font-bold text-gray-900 mb-4">Suivez-nous</h3>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="https://tiktok.com"
+                    href="https://www.tiktok.com/@akissi_fashion_officiel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 rounded-2xl text-sm font-semibold hover:bg-gray-800 transition-colors"
@@ -288,7 +288,7 @@ ${form.message || '[votre message]'}`;
                     Instagram
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/akissifashion"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"

@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Star, ChevronLeft, ChevronRight, Quote, Phone, MessageCircle, Sparkles, Shield, Truck, RefreshCw } from 'lucide-react';
 import Stats from '../components/Stats';
+import lookImg from '../assets/look.jpg';
+import accessoiresImg from '../assets/accessoires_bijoux.jpg';
+import surMesureImg from '../assets/sur_mesure.jpg';
+import soireeMariageImg from '../assets/soiree_mariage.jpg';
+import chemiseFuchsiaImg from '../assets/chemise_fuchsia.jpg';
+import pantalonRougeImg from '../assets/pantalon_rouge.jpg';
+import sandalesSplashImg from '../assets/sandales_splash.jpg';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -31,7 +38,7 @@ const collections = [
   {
     title: 'Robes de Soirée',
     count: '24 articles',
-    image: 'https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: soireeMariageImg,
   },
   {
     title: 'Ensembles Africains',
@@ -39,24 +46,25 @@ const collections = [
     image: 'https://images.pexels.com/photos/3622623/pexels-photo-3622623.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
-    title: 'Mode Casual',
+    title: 'Look Élégant',
     count: '32 articles',
-    image: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: lookImg,
   },
   {
     title: 'Accessoires',
     count: '45 articles',
-    image: 'https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: accessoiresImg,
   },
 ];
 
 const featured = [
   {
-    name: 'Robe Wax Premium',
+    name: 'Sandales Cuir Premium',
     price: '35 000 FCFA',
     oldPrice: '45 000 FCFA',
-    image: 'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: sandalesSplashImg,
     tag: 'Nouveau',
+    isContain: true,
   },
   {
     name: 'Ensemble Bogolan',
@@ -65,16 +73,16 @@ const featured = [
     tag: 'Best-seller',
   },
   {
-    name: 'Tenue Cocktail',
+    name: 'Pantalon Large Plissé',
     price: '28 000 FCFA',
     oldPrice: '35 000 FCFA',
-    image: 'https://images.pexels.com/photos/1581554/pexels-photo-1581554.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: pantalonRougeImg,
     tag: 'Promo',
   },
   {
-    name: 'Robe Longue Ankara',
-    price: '38 000 FCFA',
-    image: 'https://images.pexels.com/photos/1321943/pexels-photo-1321943.jpeg?auto=compress&cs=tinysrgb&w=600',
+    name: 'Chemise Satinée Fuchsia',
+    price: '35 000 FCFA',
+    image: chemiseFuchsiaImg,
     tag: 'Exclusif',
   },
 ];
@@ -272,11 +280,12 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {featured.map((item, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer">
-                <div className="relative overflow-hidden aspect-[3/4]">
+                <div className="relative overflow-hidden aspect-[3/4] bg-white flex items-center justify-center">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.isContain ? 'object-contain p-1' : 'object-cover'
+                      }`}
                   />
                   <span className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full ${item.tag === 'Promo' ? 'bg-rose-700 text-white' :
                     item.tag === 'Best-seller' ? 'bg-amber-500 text-white' :
@@ -318,7 +327,7 @@ export default function Home({ onNavigate }: HomeProps) {
       {/* BANNER */}
       <section className="relative py-28 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          src={surMesureImg}
           alt="Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -61,7 +61,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </p>
           <div className="flex gap-3">
             <a
-              href="https://tiktok.com"
+              href="https://www.tiktok.com/@akissi_fashion_officiel"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full bg-gray-800 hover:bg-rose-700 flex items-center justify-center transition-colors"
@@ -77,7 +77,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <Instagram className="w-4 h-4" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/akissifashion"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full bg-gray-800 hover:bg-rose-700 flex items-center justify-center transition-colors"
