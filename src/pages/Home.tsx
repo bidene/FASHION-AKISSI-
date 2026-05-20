@@ -131,6 +131,12 @@ export default function Home({ onNavigate }: HomeProps) {
     window.scrollTo(0, 0);
   };
 
+  const openWhatsAppOrder = (itemName: string) => {
+    const phone = '2290190685918';
+    const message = `Bonjour AKISSI FASHION ! Je souhaite commander : ${itemName}.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   return (
     <div className="overflow-x-hidden">
       {/* HERO */}
@@ -165,7 +171,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Voir nos Collections <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
-                  onClick={() => navigate('contact')}
+                  onClick={() => openWhatsAppOrder('une tenue')}
                   className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
                 >
                   Commander
@@ -273,7 +279,11 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {featured.map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <div
+                key={i}
+                onClick={() => openWhatsAppOrder(item.name)}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              >
                 <div className="relative overflow-hidden aspect-[3/4] bg-white flex items-center justify-center">
                   <img
                     src={item.image}
@@ -289,8 +299,11 @@ export default function Home({ onNavigate }: HomeProps) {
                     {item.tag}
                   </span>
                   <button
-                    onClick={() => navigate('contact')}
-                    className="absolute bottom-3 left-3 right-3 bg-rose-700 hover:bg-rose-800 active:scale-95 text-white py-2 rounded-xl text-sm font-semibold transition-all duration-300 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openWhatsAppOrder(item.name);
+                    }}
+                    className="absolute bottom-3 left-3 right-3 bg-rose-700 hover:bg-rose-800 active:scale-95 text-white py-2 rounded-xl text-sm font-semibold transition-all duration-300"
                   >
                     Commander
                   </button>

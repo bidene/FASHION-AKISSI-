@@ -98,18 +98,19 @@ export default function Services({ onNavigate }: ServicesProps) {
     }
   };
 
+  const openWhatsAppOrder = (message: string) => {
+    const phone = '2290190685918';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const navigate = (page: string) => {
     onNavigate(page);
     window.scrollTo(0, 0);
   };
 
   const handleOrderClick = () => {
-    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
-      navigate('contact');
-    } else {
-      navigate('contact');
-    }
+    openWhatsAppOrder('Bonjour AKISSI FASHION ! Je souhaite passer une commande. Pouvez-vous m’aider, s’il vous plaît ?');
   };
 
   const filtered = activeCategory === 'Tout'
@@ -198,7 +199,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                   <span className="text-xs font-bold text-rose-500 uppercase tracking-wider">{service.category}</span>
                   <h3 className="font-bold text-gray-900 text-xl mt-1 mb-2">{service.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{service.desc}</p>
-                  <div className="flex items-center justify-end">
+                  <div className="flex flex-col sm:flex-row items-end justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <button
                         onClick={(e) => handleShare(e, service)}
@@ -211,6 +212,15 @@ export default function Services({ onNavigate }: ServicesProps) {
                         Voir plus <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
                     </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openWhatsAppOrder(`Bonjour AKISSI FASHION ! Je souhaite commander : ${service.title}.`);
+                      }}
+                      className="text-sm font-semibold bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors"
+                    >
+                      Commander
+                    </button>
                   </div>
                 </div>
               </div>
@@ -339,7 +349,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://wa.me/2290190685918"
+                  href={`https://wa.me/2290190685918?text=${encodeURIComponent(`Bonjour AKISSI FASHION ! Je souhaite commander : ${selectedService.title}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 rounded-full font-semibold transition-colors"
