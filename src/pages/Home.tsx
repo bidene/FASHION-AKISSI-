@@ -60,28 +60,22 @@ const collections = [
 const featured = [
   {
     name: 'Sandales Cuir Premium',
-    price: '35 000 FCFA',
-    oldPrice: '45 000 FCFA',
     image: sandalesSplashImg,
     tag: 'Nouveau',
     isContain: true,
   },
   {
     name: 'Ensemble Bogolan',
-    price: '42 000 FCFA',
     image: 'https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=600',
     tag: 'Best-seller',
   },
   {
     name: 'Pantalon Large Plissé',
-    price: '28 000 FCFA',
-    oldPrice: '35 000 FCFA',
     image: pantalonRougeImg,
     tag: 'Promo',
   },
   {
     name: 'Chemise Satinée Fuchsia',
-    price: '35 000 FCFA',
     image: chemiseFuchsiaImg,
     tag: 'Exclusif',
   },
@@ -303,12 +297,6 @@ export default function Home({ onNavigate }: HomeProps) {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-gray-900 text-sm">{item.name}</h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-rose-700 font-bold">{item.price}</span>
-                    {item.oldPrice && (
-                      <span className="text-gray-400 text-xs line-through">{item.oldPrice}</span>
-                    )}
-                  </div>
                 </div>
               </div>
             ))}
